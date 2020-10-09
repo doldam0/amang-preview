@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'advanced/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'advanced/style.css' %}">
     <nav class="ui secondary pointing menu">
         <a class="item" href="{% url 'advanced' 'settings' %}">{% trans "Settings" %}</a>
         <a class="item" href="{% url 'advanced' 'members' %}">{% trans "Members" %}</a>
@@ -15,5 +15,5 @@
         {% block section %}
         {% endblock %}
     </div>
-    <script src="{% static 'advanced/js/main.js' %}"></script>
+    <script type="application/javascript" src="{% static 'advanced/js/main.js' %}"></script>
 {% endblock %}

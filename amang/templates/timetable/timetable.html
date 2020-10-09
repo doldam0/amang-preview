@@ -5,7 +5,7 @@
 {% block content %}
 {#    <link rel="stylesheet" href="{% static 'tui.calendar-1.12.14/dist/tui-calendar.min.css' %}">#}
     <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
-    <link rel="stylesheet" href="{% static 'timetable/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'timetable/style.css' %}">
 
     <div id="menu">
         <span id="menu-navi">
@@ -128,5 +128,5 @@
     <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
     <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
 {#    <script src="{% static 'tui.calendar-1.12.14/dist/tui-calendar.min.js' %}"></script>#}
-    <script src="{% static 'timetable/js/timetable.js' %}"></script>
+    <script type="application/javascript" src="{% static 'timetable/js/timetable.js' %}"></script>
 {% endblock %}
