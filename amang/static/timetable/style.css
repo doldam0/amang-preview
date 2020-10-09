@@ -1,0 +1,26 @@
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
+#menu {
+    margin: 10px auto;
+}
+
+#plus-button {
+    float: right;
+}
+
+@media screen and (max-height: 791px) {
+    #calendar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 191px;
+        bottom: 0;
+    }
+
+    #calendar * {
+        min-height: unset !important;
+    }
+}

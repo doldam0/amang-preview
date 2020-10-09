@@ -1,0 +1,63 @@
+{% extends 'advanced/advanced.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block section %}
+    <form action="{% url 'advanced' 'attendance' %}" method="post" class="ui form">{% csrf_token %}
+        <div class="ui two column grid">
+            <div class="left aligned column">
+                <div class="inline field">
+                    <label for="date">{% trans "Date" %}</label>
+                    <input type="date" id="date" name="date">
+                </div>
+            </div>
+            <div class="right aligned column">
+                <div class="ui toggle checkbox">
+                    <input type="checkbox" id="show-active-only" checked>
+                    <label for="show-active-only">{% trans "Show active member only" %}</label>
+                </div>
+            </div>
+        </div>
+        <table class="ui selectable table">
+            <thead>
+                <tr>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Attendance" %}</th>
+                    <th>{% trans "Active" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                    <tr {% if not member.is_active %}class="non-active"{% endif %}>
+                        <input type="hidden" name="pk[{{ member.pk }}]" value="{{ member.pk }}">
+                        <td data-label="{% trans "Name" %}">{{ member.name }}</td>
+                        <td data-label="{% trans "Attendance" %}" class="center aligned">
+                            <button type="button" class="circular ui basic green attendance button" id="attendance-{{ member.pk }}">
+                                <i class="check icon"></i>
+                                {% trans "Attendance" %}
+                            </button>
+                            <button type="button" class="circular ui basic orange lateness button" id="lateness-{{ member.pk }}">
+                                <i class="clock outline icon"></i>
+                                {% trans "Lateness" %}
+                            </button>
+                            <button type="button" class="circular ui basic red absence button" id="absence-{{ member.pk }}">
+                                <i class="x icon"></i>
+                                {% trans "Absence" %}
+                            </button>
+                        </td>
+                        <input type="hidden" name="attendance[{{ member.pk }}]" id="attendance-value-{{ member.pk }}">
+                        <td>
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" id="is-active" name="active[{{ member.pk }}]"
+                                       {% if member.is_active %}checked{% endif %}>
+                                <label for="is-active">{% trans "Active" %}</label>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="ui positive submit button">{% trans "Save" %}</button>
+    </form>
+    <script src="{% static 'advanced/js/attendance.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'advanced/advanced.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block section %}
+    <button class="ui red button" onclick="location.href='{% url 'advanced' 'logout' %}'">{% trans "Logout" %}</button>
+{% endblock %}

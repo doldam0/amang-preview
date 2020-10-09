@@ -1,0 +1,19 @@
+{% extends 'amang/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'advanced/style.css' %}">
+    <nav class="ui secondary pointing menu">
+        <a class="item" href="{% url 'advanced' 'settings' %}">{% trans "Settings" %}</a>
+        <a class="item" href="{% url 'advanced' 'members' %}">{% trans "Members" %}</a>
+        <a class="item" href="{% url 'advanced' 'attendance' %}">{% trans "Attendance" %}</a>
+        <a class="item" href="{% url 'advanced' 'show_attendance' %}">{% trans "Show Attendance" %}</a>
+        <a class="item" href="{% url 'advanced' 'logout' %}">{% trans "Logout" %}</a>
+    </nav>
+    <div class="ui segment">
+        {% block section %}
+        {% endblock %}
+    </div>
+    <script src="{% static 'advanced/js/main.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'advanced/advanced.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block section %}
+    <form class="ui form" method="post" action="{% url 'advanced' 'settings' %}">{% csrf_token %}
+        {% for attr, name, value in settings %}
+            <div class="field">
+                <label for="{{ attr }}">{{ name }}</label>
+                <input type="text" id="{{ attr }}" name="{{ attr }}" value="{{ value }}">
+            </div>
+        {% endfor %}
+        <button class="ui button" type="submit">{% trans "Submit" %}</button>
+    </form>
+{% endblock %}

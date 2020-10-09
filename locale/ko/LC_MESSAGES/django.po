@@ -1,0 +1,307 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-08 17:24+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: amang/models.py:8
+msgid "Vocal"
+msgstr "보컬"
+
+#: amang/models.py:8
+msgid "Guitar"
+msgstr "기타"
+
+#: amang/models.py:8
+msgid "Bass"
+msgstr "베이스"
+
+#: amang/models.py:8
+msgid "Synthesizer"
+msgstr "신디"
+
+#: amang/models.py:8
+msgid "Drum"
+msgstr "드럼"
+
+# others
+#: amang/models.py:9
+msgid "Performance"
+msgstr "공연부"
+
+#: amang/models.py:9
+msgid "Planning"
+msgstr "기획부"
+
+#: amang/models.py:9
+msgid "Public Relations"
+msgstr "홍보부"
+
+#: amang/models.py:14
+msgid "Reader"
+msgstr "팀장"
+
+#: amang/models.py:19 amang/models.py:30 amang/models.py:61
+msgid "Generation"
+msgstr "기수"
+
+#: amang/models.py:20
+msgid "Main"
+msgstr "메인"
+
+#: amang/models.py:22
+msgid "Chairperson"
+msgstr "회장"
+
+#: amang/models.py:25
+msgid "Vice-Chairperson"
+msgstr "부회장"
+
+#: amang/models.py:31
+msgid "Generations"
+msgstr "기수"
+
+#: amang/models.py:34
+msgid "Gen"
+msgstr "기"
+
+#: amang/models.py:38 amang/models.py:60
+#: amang/templates/advanced/attendance.html:24
+#: amang/templates/advanced/attendance.html:33
+msgid "Name"
+msgstr "이름"
+
+#: amang/models.py:49 amang/models.py:90
+msgid "Session"
+msgstr "세션"
+
+#: amang/models.py:50 amang/models.py:64 amang/models.py:91
+msgid "Sessions"
+msgstr "세션"
+
+#: amang/models.py:55 amang/models.py:62
+msgid "Department"
+msgstr "부서"
+
+#: amang/models.py:56
+msgid "Departments"
+msgstr "부서"
+
+#: amang/models.py:66 amang/templates/advanced/attendance.html:26
+#: amang/templates/advanced/attendance.html:53
+msgid "Active"
+msgstr "활동"
+
+#: amang/models.py:69 amang/models.py:90 amang/models.py:91
+msgid "Member"
+msgstr "부원"
+
+#: amang/models.py:70 amang/templates/advanced/advanced.html:9
+msgid "Members"
+msgstr "부원"
+
+#: amang/models.py:87
+msgid "Priority"
+msgstr "우선순위"
+
+#: amang/models.py:95 amang/models.py:116 amang/models.py:120
+#: amang/templates/advanced/advanced.html:10
+#: amang/templates/advanced/attendance.html:25
+#: amang/templates/advanced/attendance.html:34
+#: amang/templates/advanced/attendance.html:37
+#: amang/templates/amang/index.html:19
+msgid "Attendance"
+msgstr "출석"
+
+#: amang/models.py:96 amang/templates/advanced/attendance.html:41
+msgid "Lateness"
+msgstr "지각"
+
+#: amang/models.py:97 amang/templates/advanced/attendance.html:45
+msgid "Absence"
+msgstr "결석"
+
+#: amang/models.py:115 amang/templates/advanced/attendance.html:10
+msgid "Date"
+msgstr "날짜"
+
+#: amang/models.py:121
+msgid "Attendances"
+msgstr "출석"
+
+#: amang/models.py:128 amang/templates/timetable/timetable.html:57
+#: amang/templates/timetable/timetable.html:100
+msgid "Start Time"
+msgstr "시작 시각"
+
+#: amang/models.py:129 amang/templates/timetable/timetable.html:61
+#: amang/templates/timetable/timetable.html:101
+msgid "End Time"
+msgstr "종료 시각"
+
+#: amang/models.py:130 amang/templates/timetable/timetable.html:53
+msgid "Title"
+msgstr "타이틀"
+
+#: amang/models.py:131 amang/templates/timetable/timetable.html:65
+#: amang/templates/timetable/timetable.html:102
+msgid "Director"
+msgstr "대표자"
+
+#: amang/models.py:134
+#, fuzzy
+#| msgid "New Schedule"
+msgid "Schedule"
+msgstr "스케쥴"
+
+#: amang/models.py:135
+#, fuzzy
+#| msgid "New Schedule"
+msgid "Schedules"
+msgstr "스케쥴"
+
+#: amang/models.py:162 amang/models.py:174
+msgid "Meeting Link"
+msgstr "정모 링크"
+
+#: amang/templates/advanced/advanced.html:8
+msgid "Settings"
+msgstr "설정"
+
+#: amang/templates/advanced/advanced.html:11
+msgid "Show Attendance"
+msgstr "출석 보기"
+
+#: amang/templates/advanced/advanced.html:12
+#: amang/templates/advanced/logout.html:6
+msgid "Logout"
+msgstr "로그아웃"
+
+#: amang/templates/advanced/attendance.html:17
+msgid "Show active member only"
+msgstr "활동 기수만 보기"
+
+#: amang/templates/advanced/attendance.html:60
+msgid "Save"
+msgstr "저장"
+
+#: amang/templates/advanced/settings.html:13
+msgid "Submit"
+msgstr "제출"
+
+#: amang/templates/amang/base.html:20
+msgid "Sungkyunkwan University"
+msgstr "성균관대학교"
+
+#: amang/templates/amang/base.html:20
+msgid "Free Music Club"
+msgstr "자유음악동아리"
+
+#: amang/templates/amang/base.html:20
+msgid "Amang"
+msgstr "아망"
+
+#: amang/templates/amang/base.html:34 amang/templates/amang/index.html:49
+#: amang/templates/timetable/timetable.html:86
+msgid "OK"
+msgstr "확인"
+
+#: amang/templates/amang/base.html:38 amang/templates/amang/index.html:53
+#: amang/templates/timetable/timetable.html:90
+#: amang/templates/timetable/timetable.html:128
+msgid "Cancel"
+msgstr "취소"
+
+#: amang/templates/amang/index.html:13
+msgid "Timetable"
+msgstr "합주시간표"
+
+#: amang/templates/amang/index.html:25
+msgid "Join Meeting"
+msgstr "정모 참여"
+
+#: amang/templates/amang/index.html:31
+msgid "Admin Menu"
+msgstr "관리자 메뉴"
+
+#: amang/templates/amang/index.html:38
+msgid "Login"
+msgstr "로그인"
+
+#: amang/templates/amang/index.html:42
+msgid "Password"
+msgstr "비밀번호"
+
+#: amang/templates/timetable/timetable.html:42
+msgid "New Schedule"
+msgstr "새 스케쥴"
+
+#: amang/templates/timetable/timetable.html:45
+#, fuzzy
+#| msgid "New Schedule"
+msgid "Update Schedule"
+msgstr "스케쥴 수정"
+
+#: amang/templates/timetable/timetable.html:76
+msgid "Please enter the title of schedule"
+msgstr "타이틀을 입력해주세요"
+
+#: amang/templates/timetable/timetable.html:77
+msgid "Please enter the start time of schedule"
+msgstr "시작 시각을 입력해주세요"
+
+#: amang/templates/timetable/timetable.html:78
+msgid "Please enter the end time of schedule"
+msgstr "종료 시각을 입력해주세요"
+
+#: amang/templates/timetable/timetable.html:79
+msgid "Please enter the director name"
+msgstr "대표자 이름을 입력해주세요"
+
+#: amang/templates/timetable/timetable.html:80
+msgid "Incorrect format of datetime (2020-01-01T00:00)"
+msgstr "시각 포멧(2020-01-01T00:00)이 맞지 않습니다"
+
+#: amang/templates/timetable/timetable.html:106
+msgid "Edit"
+msgstr "수정"
+
+#: amang/templates/timetable/timetable.html:110
+#: amang/templates/timetable/timetable.html:132
+msgid "Delete"
+msgstr "삭제"
+
+#: amang/templates/timetable/timetable.html:118
+#, fuzzy
+#| msgid "New Schedule"
+msgid "Delete Schedule"
+msgstr "스케쥴 삭제"
+
+#: amang/templates/timetable/timetable.html:122
+msgid "Do you really wanna delete this schedule?"
+msgstr "정말로 스케쥴을 삭제하시겠어요?"
+
+#: main/settings.py:112
+msgid "Korean"
+msgstr "한국어"
+
+#: main/settings.py:113
+msgid "English"
+msgstr "영어"
+
+#~ msgid "Check Stacks"
+#~ msgstr "스택 확인"

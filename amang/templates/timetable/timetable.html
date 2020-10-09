@@ -1,0 +1,132 @@
+{% extends 'amang/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
+
+    <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+    <script src="https://uicdn.toast.com/tui.dom/v3.0.0/tui-dom.js"></script>
+    <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+
+    <link rel="stylesheet" href="{% static 'timetable/style.css' %}">
+    <script src="{% static 'timetable/js/timetable.js' %}"></script>
+
+    <div id="menu">
+        <span id="menu-navi">
+            <button type="button" class="circular ui orange button" id="today-button">Today</button>
+            <button type="button" class="circular ui icon button" id="prev-button">
+                <i class="angle left icon"></i>
+            </button>
+            <button type="button" class="circular ui icon button" id="next-button">
+                <i class="angle right icon"></i>
+            </button>
+            <button type="button" class="circular ui icon button" id="plus-button">
+                <i class="plus icon"></i>
+            </button>
+        </span>
+        <span class="ui inverted big header" id="render-range"></span>
+    </div>
+
+    <div id="calendar"></div>
+
+    <div class="ui mini modal" id="post-schedule">
+        <i class="close icon"></i>
+        <div class="header" id="new-header">
+            {% trans "New Schedule" %}
+        </div>
+        <div class="header" id="update-header">
+            {% trans "Update Schedule" %}
+        </div>
+        <div class="content">
+            <form class="ui form">
+                <div class="field">
+                    <input type="hidden" id="id" name="id">
+                </div>
+                <div class="field">
+                    <label for="title">{% trans "Title" %}</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="field">
+                    <label for="start">{% trans "Start Time" %}</label>
+                    <input type="datetime-local" id="start" name="start">
+                </div>
+                <div class="field">
+                    <label for="end">{% trans "End Time" %}</label>
+                    <input type="datetime-local" id="end" name="end">
+                </div>
+                <div class="field">
+                    <label for="director">{% trans "Director" %}</label>
+                    <select class="ui fluid search dropdown" id="director" name="director">
+                        <option value="">{{ chairperson }}</option>
+                        {% for member in members %}
+                            <option value="{{ member.pk }}">{{ member.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+            <div class="ui error message" id="error-message" hidden>
+                <ui class="list">
+                    <li id="enter-title" hidden>{% trans "Please enter the title of schedule" %}</li>
+                    <li id="enter-start" hidden>{% trans "Please enter the start time of schedule" %}</li>
+                    <li id="enter-end" hidden>{% trans "Please enter the end time of schedule" %}</li>
+                    <li id="enter-director" hidden>{% trans "Please enter the director name" %}</li>
+                    <li id="invalid-datetime">{% trans "Incorrect format of datetime (2020-01-01T00:00)" %}</li>
+                </ui>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button" id="post-button">
+                {% trans "OK" %}
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui negative right labeled icon deny button">
+                {% trans "Cancel" %}
+                <i class="x icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui mini modal" id="show-schedule">
+        <i class="close icon"></i>
+        <div class="header" id="title-header"></div>
+        <div class="content">
+            <a class="ui orange label">{% trans "Start Time" %}</a> <span id="show-start"></span><br><br>
+            <a class="ui green label">{% trans "End Time" %}</a> <span id="show-end"></span><br><br>
+            <a class="ui violet label">{% trans "Director" %}</a> <span id="show-director"></span>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button" id="edit-button">
+                {% trans "Edit" %}
+                <i class="edit icon"></i>
+            </div>
+            <div class="ui negative right labeled icon deny button" id="delete-button">
+                {% trans "Delete" %}
+                <i class="trash alternate outline icon"></i>
+            </div>
+        </div>
+    </div>
+    <div class="ui basic modal">
+        <div class="ui icon header">
+            <i class="trash alternate outline icon"></i>
+            {% trans "Delete Schedule" %}
+        </div>
+        <div class="content">
+            <h3 class="ui center aligned inverted header">
+                {% trans "Do you really wanna delete this schedule?" %}
+            </h3>
+        </div>
+        <div class="actions">
+            <div class="ui grey basic cancel inverted button">
+                <i class="x icon"></i>
+                {% trans "Cancel" %}
+            </div>
+            <div class="ui red ok inverted button" id="really-delete-button">
+                <i class="trash alternate outline icon"></i>
+                {% trans "Delete" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

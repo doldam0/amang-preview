@@ -1,0 +1,11 @@
+body {
+    background-image: none;
+}
+
+header#main-inverted-header {
+    display: flex;
+}
+
+header#main-header {
+    display: none;
+}

@@ -1,0 +1,58 @@
+{% extends 'amang/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+    <script src="{% static "amang/js/main.js" %}"></script>
+
+    <nav class="ui grid" id="menu">
+        <div class="center aligned sixteen wide phone eight wide tablet four wide computer column">
+            <a href="{% url 'timetable' %}" class="my orange block button">
+                <i class="orange massive clock outline icon"></i>
+                <p>{% trans "Timetable" %}</p>
+            </a>
+        </div>
+        <div class="center aligned sixteen wide phone eight wide tablet four wide computer column">
+            <a href="/" class="my green block button">
+                <i class="green massive calendar alternate outline icon"></i>
+                <p>{% trans "Attendance" %}</p>
+            </a>
+        </div>
+        <div class="center aligned sixteen wide phone eight wide tablet four wide computer column">
+            <a href="{{ meeting_link }}" class="my blue block button">
+                <i class="blue massive comments alternate outline icon"></i>
+                <p>{% trans "Join Meeting" %}</p>
+            </a>
+        </div>
+        <div class="center aligned sixteen wide phone eight wide tablet four wide computer column">
+            <a class="my grey block button" id="advanced">
+                <i class="grey massive setting icon"></i>
+                <p>{% trans "Admin Menu" %}</p>
+            </a>
+        </div>
+    </nav>
+
+    <div class="ui mini modal" id="password-modal">
+        <i class="close icon"></i>
+        <div class="header" id="title-header">{% trans "Login" %}</div>
+        <div class="content">
+            <div class="ui form">
+                <div class="field">
+                    <label for="password">{% trans "Password" %}</label>
+                    <input type="password" id="password">
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                {% trans "OK" %}
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui negative right labeled icon deny button">
+                {% trans "Cancel" %}
+                <i class="x icon"></i>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
