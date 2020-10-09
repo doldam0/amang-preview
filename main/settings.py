@@ -26,7 +26,7 @@ SECRET_KEY = 'vmif!35z8!2-76098))gz-6(t=^(ps&pt##dtnqi_rt)9mih1f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://15.165.95.163', '127.0.0.1']
+ALLOWED_HOSTS = ['15.165.95.163', '127.0.0.1']
 
 
 # Application definition
