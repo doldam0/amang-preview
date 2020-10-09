@@ -1,4 +1,6 @@
-$(async () => {
+window.onload = async () => {
+    console.log('start');
+
     const calendar = new tui.Calendar('#calendar', {
         defaultView     : 'week',
         taskView        : false,
@@ -372,4 +374,4 @@ $(async () => {
     };
 
     directorSelection.dropdown();
-});
+};
