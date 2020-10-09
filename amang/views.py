@@ -3,14 +3,14 @@ from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from .models import Schedule, Member, Information, Attendance, AttendanceStatus
 from maya import parse
-
-from typing import Dict, List
+from main.settings import LANGUAGES
 
 # Create your views here.
 def index(request: HttpRequest):
 	return render(request, 'amang/index.html', {
 		'meeting_link': Information.get().meeting_link,
-		'user': request.user
+		'user': request.user,
+		'languages': LANGUAGES
 	})
 
 def timetable(request: HttpRequest):
@@ -65,6 +65,7 @@ def delete_schedule(request: HttpRequest, schedule_id: int):
 
 def admin_login(request: HttpRequest):
 	password = request.POST['password']
+	print(password)
 	user = authenticate(request, username='admin', password=password)
 	if user is None:
 		return HttpResponse('not admin')
@@ -75,13 +76,16 @@ def admin_logout(request: HttpRequest):
 	logout(request)
 	return index(request)
 
-def advanced(request: HttpRequest, section: str = 'settings'):
+def advanced(request: HttpRequest, method: str = 'settings'):
+	if method == 'login' and request.method == 'POST':
+		return admin_login(request)
+
 	if not request.user.is_authenticated or not request.user.is_superuser:
 		return index(request)
 
-	if section == 'members':
+	if method == 'members':
 		return render(request, 'advanced/members.html')
-	elif section == 'attendance':
+	elif method == 'attendance':
 		if request.method == 'GET':
 			return render(request, 'advanced/attendance.html', {
 				'members': Member.objects.all().order_by('name', 'is_active')
@@ -99,11 +103,13 @@ def advanced(request: HttpRequest, section: str = 'settings'):
 					attendance = Attendance(member=member, date=date, value=AttendanceStatus.by_index(att))
 					attendance.save()
 			return redirect('/advanced/2/')
-	elif section == 'show_attendance':
+	elif method == 'show_attendance':
 		if request.method == 'GET':
 			return render(request, 'advanced/show_attendance.html')
-	elif section == 'logout':
+	elif method == 'logout':
 		return render(request, 'advanced/logout.html')
+	elif method == 'do_logout':
+		return admin_logout(request)
 	else:
 		if request.method == 'GET':
 			return render(request, 'advanced/settings.html', {

@@ -24,7 +24,5 @@ urlpatterns = [
     path('timetable/update/', views.update_schedule),
     path('timetable/delete/<int:schedule_id>/', views.delete_schedule),
     path('advanced/', views.advanced, name='advanced'),
-    path('advanced/<str:section>/', views.advanced, name='advanced'),
-    path('advanced/login/', views.admin_login),
-    path('advanced/logout/', views.admin_logout)
+    path('advanced/<str:method>/', views.advanced, name='advanced')
 ]

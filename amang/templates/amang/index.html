@@ -55,4 +55,32 @@
             </div>
         </div>
     </div>
+
+    <div class="ui mini modal" id="language-modal">
+        <i class="close icon"></i>
+        <div class="header" id="title-header">{% trans "Select Language" %}</div>
+        <div class="content">
+            <div class="ui form">
+                <div class="field">
+                    <label for="language">{% trans "Language" %}</label>
+                    <select class="ui fluid search dropdown" id="language" name="language">
+                        <option value="">{{ chairperson }}</option>
+                        {% for code, lang in languages %}
+                            <option value="{{ code }}">{{ lang }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui positive right labeled icon button">
+                {% trans "OK" %}
+                <i class="checkmark icon"></i>
+            </div>
+            <div class="ui negative right labeled icon deny button">
+                {% trans "Cancel" %}
+                <i class="x icon"></i>
+            </div>
+        </div>
+    </div>
 {% endblock content %}

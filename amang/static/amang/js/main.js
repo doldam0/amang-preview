@@ -44,9 +44,19 @@ $(() => {
                 if (await checkAdmin(password)) {
                     location.href = '/advanced/';
                 } else if (password !== false) {
-                    modalAlert('Not valid password');
+                    modalAlert('Invalid password');
                 }
             });
         }
     };
+
+    const languageModal = document.getElementById('language-modal');
+    const language = document.getElementById('language');
+    if (!document.cookie.includes('sessionid')) {
+        languageModal.modal({
+            onApprove   : () => {
+                callback(passwordInput.value);
+            }
+        }).modal('show');
+    }
 });

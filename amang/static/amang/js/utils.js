@@ -1,4 +1,5 @@
 function modalAlert(message) {
+    console.trace();
     if (alertMessage && alertModal) {
         alertMessage.innerText = message;
         alertModal.modal('show');
@@ -7,14 +8,20 @@ function modalAlert(message) {
     }
 }
 
-const alertModal = $('.ui.modal#alert');
-const alertMessage = document.getElementById('alert-message');
-const alertOKButton = document.querySelector('.ui.modal#alert .positive.button');
-alertModal.onkeydown = event => {
-    if (event.key === 'Enter') {
-        alertOKButton.click();
+let alertModal;
+let alertMessage;
+
+$(() => {
+    alertModal = $('.ui.modal#alert');
+    alertMessage = document.getElementById('alert-message');
+    alertModal.onkeydown = event => {
+        const alertOKButton = document.querySelector('.ui.modal#alert .positive.button');
+
+        if (event.key === 'Enter') {
+            alertOKButton.click();
+        }
     }
-};
+});
 
 // Date to string function
 Date.prototype.getString = function(showTime = false) {
