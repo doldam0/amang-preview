@@ -52,12 +52,7 @@
                 </div>
                 <div class="field">
                     <label for="director">{% trans "Director" %}</label>
-                    <select class="ui fluid search dropdown" id="director" name="director">
-                        <option value="">{{ chairperson }}</option>
-                        {% for member in members %}
-                            <option value="{{ member.pk }}">{{ member.name }}</option>
-                        {% endfor %}
-                    </select>
+                    <input type="text" id="director" name="director">
                 </div>
             </form>
             <div class="ui error message" id="error-message" hidden>
